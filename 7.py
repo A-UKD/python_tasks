@@ -1,4 +1,4 @@
-n = int(input())
+n = int(input("Введіть число n: "))
 m = 1
 
 for a in range(-n, n, m):
