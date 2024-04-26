@@ -32,11 +32,10 @@ while True:
         show_person()
     elif choice == 2:
         book = input("Введіть назву книги: ")
-        if book in person["books_statistics"]:
+        if book in person["books_in_use"]:
             print("В читача є книга з таким іменем")
         else:
-            person["books_statistics"].append(book)
-        person["books_in_use"].append(book)
+            person["books_in_use"].append(book)
     elif choice == 3:
         print("Книги в використанні:", ", ".join(person["books_in_use"]))
         book = input("Введіть назву книги: ")
