@@ -1,7 +1,7 @@
 a = [1]
 l = [3, 6, 7]
 
-a += l
+a.extend(l)
 print(a)
 
 a.insert(1, 33333)
