@@ -15,8 +15,16 @@ def show_person():
     print("Ім'я", person["first_name"])
     print("Група", person["group"])
     print("Курс", person["course"])
-    print("Книги в використанні", ", ".join(person["books_in_use"]))
-    print("Статистика книг", ", ".join(person["books_statistics"]))
+
+    if person["books_in_use"]:
+        print("Книги в використанні:", ", ".join(person["books_in_use"]))
+    else:
+        print("Читач не брав книги в використання")
+
+    if person["books_statistics"]:
+        print("Статистика книг:", ", ".join(person["books_statistics"]))
+    else:
+        print("Немає статистики книг")
 
 
 show_person()
@@ -37,12 +45,15 @@ while True:
         else:
             person["books_in_use"].append(book)
     elif choice == 3:
-        print("Книги в використанні:", ", ".join(person["books_in_use"]))
-        book = input("Введіть назву книги: ")
-        if book in person["books_in_use"]:
-            person["books_in_use"].remove(book)
-            person["books_statistics"].append(book)
+        if person["books_in_use"]:
+            print("Книги в використанні:", ", ".join(person["books_in_use"]))
+            book = input("Введіть назву книги: ")
+            if book in person["books_in_use"]:
+                person["books_in_use"].remove(book)
+                person["books_statistics"].append(book)
+            else:
+                print("В читача немає книги з таким іменем")
         else:
-            print("В читача немає книги з таким іменем")
+            print("У читача немає книг у використанні")
     elif choice == 0:
         break
